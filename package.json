@@ -1,0 +1,11 @@
+{
+  "name": "iso-path",
+  "version": "1.0.0",
+  "description": "isomorphic version of Node.js's native 'path' module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sirRodgePodge",
+  "license": "ISC"
+}
