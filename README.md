@@ -7,4 +7,4 @@ useful for using 'require' on the front end or for dynamically generating routes
         
         var joinedPath = pathJoin('..', '..', './', 'testFolder', ['check', 'me', 'out'])
         
-        console.log(joinedPath) // logs '../.././testFolder/check/me/out'
+        console.log(joinedPath) // '../.././testFolder/check/me/out'
