@@ -1,7 +1,12 @@
 {
-  "name": "iso-path",
-  "version": "1.0.0",
-  "description": "isomorphic version of Node.js's native 'path' module",
+  "name": "iso-path-join",
+  "version": "1.0.1",
+  "description": "Node.js's native 'path' module's 'join' method made isomorphic(/universal) with the bonus of handling arrays",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/sirrodgepodge/iso-path-join"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
