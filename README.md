@@ -8,5 +8,9 @@ import pathJoin from 'iso-path-join'
 
 var joinedPath = pathJoin('..', '..', './', 'testFolder', ['check', 'me', 'out'])
 
-console.log(joinedPath) // '../.././testFolder/check/me/out'
+console.log(joinedPath) // => '../.././testFolder/check/me/out'
 ```
+[![NPM][nodei-image]][nodei-url]
+
+[nodei-image]: https://nodei.co/npm/iso-path-join.png?downloads=true&downloadRank=true&stars=true
+[nodei-url]: https://www.npmjs.com/package/iso-path-join
