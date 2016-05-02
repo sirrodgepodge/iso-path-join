@@ -9,7 +9,7 @@ if (!Array.isArray) {
 }
 
 // works just like Node.js's native path library's 'join' function with the bonus of handling arrays
-export default function pathJoin() {
+function pathJoin() {
   return Array.prototype.slice.call(arguments).map(function(val) {
     return val = typeof val === 'string' ? "" + val : // if string or number just keep as is
       Array.isArray(val) ? pathJoin.apply(null, val) : // handle array with recursion
