@@ -1,6 +1,6 @@
 {
   "name": "iso-path-join",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js's native 'path' module's 'join' method made isomorphic(/universal) with the bonus of handling arrays",
   "repository" :
   {
