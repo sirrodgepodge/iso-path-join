@@ -1,4 +1,3 @@
-var dupeSlash = /(\/+)/g;
 var moreThanThreePeriods = /\.{3,}/g;
 
 // polyfill Array.isArray if necessary
@@ -12,12 +11,22 @@ var errorStr = 'tried to join something other than a string or array, it was ign
 
 // works just like Node.js's native path library's 'join' function with the bonus of handling arrays
 function pathJoin() {
-  return Array.prototype.slice.call(arguments).map(function(val) {
-    return val = typeof val === 'string' ? "" + val : // if string or number just keep as is
-      Array.isArray(val) ? pathJoin.apply(null, val) : // handle array with recursion
-      (console.error ? console.error(errorStr) : console.log(errorStr)),
-      val && val || '';
-  }).join('/').replace(dupeSlash, '/').replace(moreThanThreePeriods, '..'); // join the resulting array together
+  return Array.prototype.slice.call(arguments).reduce(function(prev, val) {
+  	if(typeof prev === 'undefined') return;
+
+  	return typeof val === 'string' || typeof val === 'number' ?
+  		joinStringsWithSlash(prev, "" + val) : // if string or number just keep as is
+  		Array.isArray(val) ? joinStringsWithSlash(prev, pathJoin.apply(null, val)) : // handle array with recursion
+  		(console.error ? console.error(errorStr) : console.log(errorStr)) || ''
+  }, '').replace(moreThanThreePeriods, '..'); // join the resulting array together
+}
+
+function joinStringsWithSlash(str1, str2) {
+	const str1isEmpty = !str1.length;
+	const str1EndsInSlash = str1[str1.length - 1] === '/';
+	const str2StartsWithSlash = str2[0] === '/';
+	var res = str1EndsInSlash && str2StartsWithSlash && (str1 + str2.slice(1)) || !str1EndsInSlash && !str2StartsWithSlash && !str1isEmpty && (str1 + '/' + str2) || (str1 + str2);
+	return res;
 }
 
 module.exports = pathJoin;
